@@ -13,7 +13,7 @@ function Navbar() {
     <header className="bg-white shadow-md">
       <>
         <div className="py-4 shadow-md">
-          <ul className="container mx-auto flex flex-wrap justify-between md:flex-row flex-col px-4 md:px-2 items-center relative">
+          <ul className="container mx-auto flex flex-wrap justify-between md:flex-row  px-4 md:px-2 items-center relative">
             <div className="flex gap-4">
               <li className="">
                 <Link to={"/"}>Home</Link>
