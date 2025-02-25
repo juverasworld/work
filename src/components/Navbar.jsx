@@ -13,8 +13,8 @@ function Navbar() {
   const handleUser = () => {
     setIsOpen(!isOpen);
   };
-const cartItems = useSelector((state) => state.cart.items);
-const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <header className="bg-white shadow-md">
@@ -68,16 +68,24 @@ const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
               type="text"
               placeholder="search product"
               value={searchTerm}
-              onChange={(e)=>dispatch(setSearchItem(e.target.value))}
+              onChange={(e) => dispatch(setSearchItem(e.target.value))}
               className="bg-zinc-100 rounded-md border border-sinc-200 focus:outline-none py-3 px-3 w-full "
             />
           </form>
+          <div className="relative">
+            
           <Link to={"/cart"}>
             <ShoppingCart
               size={54}
               className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full"
             />
+            {itemCount > 0 && (
+              <span className="absolute -top-2 -right-1 bg-blue-600 text-white flex text-xs rounded-full w-5 h-5 items-center justify-center hover:bg-zinc-300">
+                {itemCount}
+              </span>
+            )}
           </Link>
+          </div>
         </nav>
       </>
     </header>

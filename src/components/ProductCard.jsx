@@ -11,7 +11,7 @@ function ProductCard({product}) {
         <img
           src={product.image}
           alt={product.image}
-          className="h-[503px] lg:w-[473px] w-full"
+          className="h-[503px] lg:w-[473px] w-full p-4"
         />
         <div className="bg-gray-50 p-4 w-full">
             <h2 className="text-lg font-semibold my-4">{product.title.substring(0, 25) + "..."}</h2>
