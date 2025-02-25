@@ -13,6 +13,9 @@ function Navbar() {
   const handleUser = () => {
     setIsOpen(!isOpen);
   };
+const cartItems = useSelector((state) => state.cart.items);
+const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="bg-white shadow-md">
       <>
