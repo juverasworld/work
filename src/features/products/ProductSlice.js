@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import products from "../../productContent";
+import Products from "../../productContent";
 
 const initialState = {
-  items: products,
-  filteredItems: products,
+  items: Products,
+  filteredItems: Products,
   searchTerm: "",
+  selectedCategory: "All"
 };
 
 const filterProducts = (state) => {
@@ -12,7 +13,8 @@ const filterProducts = (state) => {
     const matchSearch = product.title
       .toLowerCase()
       .includes(state.searchTerm.toLowerCase());
-      return matchSearch;
+      const matchCategory = state.selectedCategory === "All" || product.category === state.selectedCategory;
+      return matchSearch && matchCategory;
   });
 };
 
@@ -25,9 +27,13 @@ const productSlice = createSlice({
       state.filteredItems = filterProducts(state);
     },
 
+    setSelectedCategory: (state, action) =>{
+      state.selectedCategory = action.payload;
+      state.filteredItems = filterProducts(state)
+    }
 },
 });
 
 
-export const {setSearchItem} = productSlice.actions;
+export const {setSearchItem, setSelectedCategory} = productSlice.actions;
 export default productSlice.reducer;

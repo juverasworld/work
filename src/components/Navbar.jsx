@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import { ShoppingCart, User } from "lucide-react";
 import { useState } from "react";
 import logo from "/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchItem } from "../features/products/ProductSlice";
 function Navbar() {
-    // eslint-disable-next-line no-unused-vars
-    const [isOpen, setIsOpen] = useState(false);
-    const handleUser =()=>{
-        setIsOpen(!isOpen)
-    }
+  // eslint-disable-next-line no-unused-vars
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const searchTerm = useSelector((state) => state.product);
+  const handleUser = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <header className="bg-white shadow-md">
       <>
@@ -53,15 +57,24 @@ function Navbar() {
         <nav className="flex justify-between container items-center mx-auto md:py-6 py-8  px-2">
           <div className="flex items-center">
             <Link to={"/"} className="bg-gray-700 py-2 px-4 rounded">
-            <img src={logo} alt="" className="w-10" />
+              <img src={logo} alt="" className="w-10" />
             </Link>
           </div>
           <form action="" className="w-1/2 sm:block hidden">
-            <input type="text" placeholder="search product" className="bg-zinc-100 rounded-md border border-sinc-200 focus:outline-none py-3 px-3 w-full "/>
+            <input
+              type="text"
+              placeholder="search product"
+              value={searchTerm}
+              onChange={(e)=>dispatch(setSearchItem(e.target.value))}
+              className="bg-zinc-100 rounded-md border border-sinc-200 focus:outline-none py-3 px-3 w-full "
+            />
           </form>
-            <Link to={"/cart"}>
-            <ShoppingCart size={54} className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full" /> 
-            </Link>
+          <Link to={"/cart"}>
+            <ShoppingCart
+              size={54}
+              className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full"
+            />
+          </Link>
         </nav>
       </>
     </header>

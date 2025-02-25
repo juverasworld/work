@@ -2,12 +2,12 @@
 /* eslint-disable no-unused-vars */
 // const products = require("./products.json");
 
-const products = [
+const Products = [
   /* eslint-enable no-unused-vars */
   {
     id: 1,
     title: "Wireless Bluetooth Headphones",
-    category: "Electronics",
+    category: "Graphic cards",
     price: 59.99,
     currency: "USD",
     stock: 120,
@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     title: "Smartphone 5G",
-    category: "Electronics",
+    category: "Laptops",
     price: 699.99,
     currency: "USD",
     stock: 50,
@@ -30,7 +30,7 @@ const products = [
   {
     id: 3,
     title: "Men's Running Shoes",
-    category: "Fashion",
+    category: "Monitors",
     price: 79.99,
     currency: "USD",
     stock: 200,
@@ -42,7 +42,7 @@ const products = [
   {
     id: 4,
     title: "Leather Wallet",
-    category: "Accessories",
+    category: "Motherboards",
     price: 39.99,
     currency: "USD",
     stock: 150,
@@ -54,7 +54,7 @@ const products = [
   {
     id: 5,
     title: "4K Smart TV",
-    category: "Home Appliances",
+    category: "Power supply",
     price: 899.99,
     currency: "USD",
     stock: 30,
@@ -66,7 +66,7 @@ const products = [
   {
     id: 6,
     title: "Gaming Laptop",
-    category: "Electronics",
+    category: "Graphic cards",
     price: 1299.99,
     currency: "USD",
     stock: 25,
@@ -78,7 +78,7 @@ const products = [
   {
     id: 7,
     title: "Wireless Earbuds",
-    category: "Electronics",
+    category: "Laptops",
     price: 79.99,
     currency: "USD",
     stock: 300,
@@ -90,7 +90,7 @@ const products = [
   {
     id: 8,
     title: "Smart Watch",
-    category: "Wearable Tech",
+    category: "Monitors",
     price: 199.99,
     currency: "USD",
     stock: 80,
@@ -102,7 +102,7 @@ const products = [
   {
     id: 9,
     title: "Mechanical Keyboard",
-    category: "Computer Accessories",
+    category: "Motherboards",
     price: 99.99,
     currency: "USD",
     stock: 95,
@@ -114,7 +114,7 @@ const products = [
   {
     id: 10,
     title: "Ergonomic Office Chair",
-    category: "Furniture",
+    category: "Power supply",
     price: 249.99,
     currency: "USD",
     stock: 60,
@@ -126,7 +126,7 @@ const products = [
   {
     id: 11,
     title: "Lampost Office Chair",
-    category: "Furniture",
+    category: "Graphic cards",
     price: 249.99,
     currency: "USD",
     stock: 60,
@@ -138,7 +138,7 @@ const products = [
   {
     id: 12,
     title: "Windows Office Chair",
-    category: "Furniture",
+    category: "Motherboards",
     price: 249.99,
     currency: "USD",
     stock: 60,
@@ -147,11 +147,10 @@ const products = [
 
     description: "Comfortable ergonomic office chair with lumbar support.",
   },
-  
 ];
 
 
 // eslint-disable-next-line no-unused-vars
 
 
-export default products;
+export default Products;
