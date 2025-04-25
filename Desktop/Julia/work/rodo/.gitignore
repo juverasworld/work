@@ -1,0 +1,17 @@
+api/node_modules
+client/node_modules
+api/dist/
+client/.next/
+api/.env
+api/.env.*
+client/.env.*
+client/.env
+api/bun.lock
+client/bun.lock
+api/src/logs/
+client/coverage/
+client/out/
+*/.DS_Store
+*/*.pem
+.github/
+host.md

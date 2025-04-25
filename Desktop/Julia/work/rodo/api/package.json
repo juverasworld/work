@@ -1,0 +1,43 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Api for my frontend",
+  "main": "src/index.ts",
+  "type": "commonjs",
+  "scripts": {
+    "start": "bun dist/index.js",
+    "dev": "nodemon src/index.ts -p 5050",
+    "build": "bun run clean && tsc",
+    "clean": "rm -rf dist/",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "test": "bun run test"
+  },
+  "postinstall": "bun start",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.12.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.0",
+    "@types/helmet": "^0.0.48",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.13.9",
+    "@types/nodemailer": "^6.4.17",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.8.2"
+  }
+}
