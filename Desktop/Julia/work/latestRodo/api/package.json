@@ -1,0 +1,23 @@
+{
+  "name": "rodo-api",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/cron": "^1.2.0",
+    "@elysiajs/jwt": "^1.2.0",
+    "@elysiajs/swagger": "^1.2.2",
+    "bcryptjs": "^3.0.2",
+    "elysia": "latest",
+    "mongoose": "^8.13.2",
+    "zeptomail": "^6.2.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
