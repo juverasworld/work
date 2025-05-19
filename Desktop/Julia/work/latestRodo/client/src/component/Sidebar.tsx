@@ -1,145 +1,183 @@
+
 // "use client";
 
-// import Link from "next/link";
 // import {
 //   LayoutDashboard,
-//   FileText,
+//   Briefcase,
 //   Calendar,
 //   MessageSquare,
-//   PoundSterling,
-//   FileText as ReviewIcon,
+//   Wallet,
+//   Star,
 //   Settings,
 //   HelpCircle,
+//   MessageCircle,
 // } from "lucide-react";
+// import Image from "next/image";
+// import Link from "next/link";
+// import { useState } from "react";
 
 // const navItems = [
-//   { name: "Dashboard", icon: LayoutDashboard, path: "/" },
-//   { name: "My services", icon: FileText, path: "/services" },
-//   { name: "Appointment", icon: Calendar, path: "/appointment" },
-//   { name: "Messages", icon: MessageSquare, path: "/messages" },
-//   { name: "Earnings", icon: PoundSterling, path: "/earnings" },
-//   { name: "Reviews and feedback", icon: ReviewIcon, path: "/reviews" },
-//   { name: "Settings", icon: Settings, path: "/settings" },
-//   { name: "Help centre", icon: HelpCircle, path: "/help" },
+//   { label: "Dashboard", icon: LayoutDashboard, href: "/", active: true },
+//   { label: "My services", icon: Briefcase, href: "/services" },
+//   { label: "Appointments", icon: Calendar, href: "/appointments" },
+//   { label: "Messages", icon: MessageSquare, href: "/messages" },
+//   { label: "Earnings", icon: Wallet, href: "/earnings" },
+//   { label: "Reviews and feedback", icon: Star, href: "/reviews" },
 // ];
 
-// const Sidebar: React.FC = () => {
+// const secondaryItems = [
+//   { label: "Settings", icon: Settings, href: "/settings" },
+//   { label: "Help centre", icon: HelpCircle, href: "/help" },
+//   { label: "Live chat", icon: MessageCircle, href: "/chat" },
+// ];
+
+// export default function Sidebar() {
+//   const [activeIndex, setActiveIndex] = useState(0);
+
 //   return (
-//     <div className="hidden md:flex flex-col w-64 h-screen bg-gray-50 border-r">
-//       <div className="p-6">
-//         <h1 className="text-2xl font-semibold text-gray-800">rodo.</h1>
+//     <aside className="min-h-screen w-full max-w-[260px] border-r border-gray-100 bg-white p-4 hidden sm:block z-50">
+//       <div className="flex items-center justify-start mb-12 pl-2">
+//         {/* Replace this with your logo */}
+//         <Image src="/logo.svg" alt="Logo" width={100} height={40} />
 //       </div>
-//       <nav className="flex-1 px-4">
-//         {navItems.map((item) => (
+
+//       <nav className="space-y-1">
+//         {navItems.map((item, index) => (
 //           <Link
-//             key={item.name}
-//             href={item.path}
-//             className="flex items-center p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg"
+//             key={item.label}
+//             href={item.href}
+//             onClick={() => setActiveIndex(index)}
+//             className={`flex items-center gap-3 px-4 py-3 rounded-lg ${
+//               activeIndex === index
+//                 ? "bg-blue-50 text-blue-600 font-medium"
+//                 : "text-gray-800 hover:bg-gray-100"
+//             }`}
 //           >
-//             <item.icon className="h-5 w-5 mr-3" />
-//             {item.name}
+//             <item.icon size={20} />
+//             <span>{item.label}</span>
 //           </Link>
 //         ))}
 //       </nav>
-//     </div>
+
+//       <div className="my-8 border-t border-gray-200" />
+
+//       <nav className="space-y-1">
+//         {secondaryItems.map((item) => (
+//           <Link
+//             key={item.label}
+//             href={item.href}
+//             className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-800 hover:bg-gray-100"
+//           >
+//             <item.icon size={20} />
+//             <span>{item.label}</span>
+//           </Link>
+//         ))}
+//       </nav>
+//     </aside>
 //   );
-// };
+// }
+// Sidebar.tsx
+"use client";
+import {
+  LayoutDashboard,
+  Briefcase,
+  Calendar,
+  MessageSquare,
+  Wallet,
+  Star,
+  Settings,
+  HelpCircle,
+  MessageCircle,
+  X,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
-// export default Sidebar;
-// src/components/Sidebar.tsx
-import React from "react";
-import { Briefcase, Calendar, MessageSquare, BarChart2, AlertCircle, Settings, HelpCircle, MessagesSquare } from "lucide-react";
+const navItems = [
+  { label: "Dashboard", icon: LayoutDashboard, href: "/" },
+  { label: "My services", icon: Briefcase, href: "/services" },
+  { label: "Appointments", icon: Calendar, href: "/appointments" },
+  { label: "Messages", icon: MessageSquare, href: "/messages" },
+  { label: "Earnings", icon: Wallet, href: "/earnings" },
+  { label: "Reviews and feedback", icon: Star, href: "/reviews" },
+];
 
-interface SidebarProps {
-  isOpen: boolean;
-  toggleSidebar: () => void;
-}
+const secondaryItems = [
+  { label: "Settings", icon: Settings, href: "/settings" },
+  { label: "Help centre", icon: HelpCircle, href: "/help" },
+  { label: "Live chat", icon: MessageCircle, href: "/chat" },
+];
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+export default function Sidebar({
+  show,
+  onClose,
+}: {
+  show: boolean;
+  onClose: () => void;
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <aside
-      className={`bg-white shadow-sm w-64 p-4 fixed inset-y-0 left-0 transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } md:translate-x-0 transition-transform duration-300 ease-in-out z-50`}
-    >
-      <nav className="mt-8">
-        <ul className="space-y-2">
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 bg-blue-100 text-blue-600 rounded-md"
-            >
-              <Briefcase className="w-5 h-5 mr-3" /> Dashboard
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <Briefcase className="w-5 h-5 mr-3" /> My services
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <Calendar className="w-5 h-5 mr-3" /> Appointments
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <MessageSquare className="w-5 h-5 mr-3" /> Messages
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <BarChart2 className="w-5 h-5 mr-3" /> Earnings
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <AlertCircle className="w-5 h-5 mr-3" /> Reviews and feedback
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <Settings className="w-5 h-5 mr-3" /> Settings
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <HelpCircle className="w-5 h-5 mr-3" /> Help centre
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-            >
-              <MessagesSquare className="w-5 h-5 mr-3" /> Live chat
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  );
-};
+    <>
+      {/* Mobile overlay */}
+      {show && (
+        <div
+          className="fixed inset-0 z-30 bg-black/40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
 
-export default Sidebar;
+      <aside
+        className={`${
+          show
+            ? "translate-x-0"
+            : "-translate-x-full lg:translate-x-0"
+        } fixed top-0 left-0 z-40 w-[260px] min-h-screen bg-white border-r border-gray-100 p-4 transform transition-transform duration-300`}
+      >
+        <div className="flex items-center justify-between mb-6">
+          <Image src="/logo.svg" alt="Logo" width={100} height={40} />
+          <button
+            onClick={onClose}
+            className="lg:hidden text-gray-500 hover:text-gray-800"
+          >
+            <X />
+          </button>
+        </div>
+
+        <nav className="space-y-1">
+          {navItems.map((item, index) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setActiveIndex(index)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg ${
+                activeIndex === index
+                  ? "bg-blue-50 text-blue-600 font-medium"
+                  : "text-gray-800 hover:bg-gray-100"
+              }`}
+            >
+              <item.icon size={20} />
+              <span>{item.label}</span>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="my-8 border-t border-gray-200" />
+
+        <nav className="space-y-1">
+          {secondaryItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-800 hover:bg-gray-100"
+            >
+              <item.icon size={20} />
+              <span>{item.label}</span>
+            </Link>
+          ))}
+        </nav>
+      </aside>
+    </>
+  );
+}
