@@ -1,137 +1,6 @@
-// // Navbar.tsx
-// import React from "react";
-// import { Bell } from "lucide-react";
 
-// const Navbar = () => {
-//   return (
-//     <header className="w-full bg-white shadow-sm fixed top-0 z-10">
-//       <div className="hidden lg:flex justify-between items-center px-[30px] py-5 w-[1120px] mx-auto">
-//         <div className="flex flex-col gap-1">
-//           <h1 className="text-[24px] font-semibold text-[#2A2A2A]">Welcome</h1>
-//           <p className="text-[16px] text-[#797979] font-medium">
-//             Manage your services, bookings, and profile from here
-//           </p>
-//         </div>
-
-//         <div className="flex items-center gap-5">
-//           {/* Notification Bell */}
-//           <div className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md">
-//             <Bell className="w-5 h-5 text-[#2A2A2A]" />
-//             <span className="absolute top-2 right-2 w-[6.4px] h-[6.4px] bg-[#5188FF] rounded-full" />
-//           </div>
-
-//           {/* Profile */}
-//           <div className="flex items-center gap-2">
-//             <img
-//               src="/path-to-profile.jpg"
-//               alt="Profile"
-//               className="w-10 h-10 rounded-full shadow-[0_4px_26.2px_rgba(222,222,222,0.25),-2px_-2px_19.3px_rgba(224,224,224,0.41)]"
-//             />
-//             <div className="flex flex-col">
-//               <span className="text-xs text-[#797979]">Welcome</span>
-//               <span className="text-sm font-semibold text-[#2A2A2A]">Paul</span>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Mobile Navbar */}
-//       <div className="lg:hidden w-full px-4 pt-4 pb-2 border-b border-[#EBEBEB] bg-white">
-//         <div className="flex justify-between items-center">
-//           {/* Left: Logo/Brand */}
-//           <div className="flex items-center gap-2">
-//             <img src="/logo.png" alt="Logo" className="h-6" />
-//           </div>
-
-//           {/* Right: Notification + Profile */}
-//           <div className="flex items-center gap-4">
-//             <div className="relative w-9 h-9 flex items-center justify-center bg-white rounded-full shadow-md">
-//               <Bell className="w-4 h-4 text-[#2A2A2A]" />
-//               <span className="absolute top-2 right-2 w-[6.4px] h-[6.4px] bg-[#5188FF] rounded-full" />
-//             </div>
-
-//             <img
-//               src="/path-to-profile.jpg"
-//               alt="Profile"
-//               className="w-9 h-9 rounded-full shadow"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
-// Navbar.tsx
 import React from "react";
-// import { Bell, Menu } from "lucide-react";
 
-// const Navbar = ({ onToggleSidebar }: { onToggleSidebar: () => void }) => {
-//   return (
-//     <header className="w-full bg-white shadow-sm fixed top-0 z-20 h-[100px]">
-//       {/* Desktop Navbar */}
-//       <div className="hidden lg:flex justify-between items-center px-[30px] py-5 w-[1120px] mx-auto">
-//         <div className="flex flex-col gap-1">
-//           <h1 className="text-[24px] font-semibold text-[#2A2A2A]">Welcome</h1>
-//           <p className="text-[16px] text-[#797979] font-medium">
-//             Manage your services, bookings, and profile from here
-//           </p>
-//         </div>
-
-//         <div className="flex items-center gap-5">
-//           {/* Notification Bell */}
-//           <div className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md">
-//             <Bell className="w-5 h-5 text-[#2A2A2A]" />
-//             <span className="absolute top-2 right-2 w-[6.4px] h-[6.4px] bg-[#5188FF] rounded-full" />
-//           </div>
-
-//           {/* Profile */}
-//           <div className="flex items-center gap-2">
-//             <img
-//               src="/path-to-profile.jpg"
-//               alt="Profile"
-//               className="w-10 h-10 rounded-full shadow-[0_4px_26.2px_rgba(222,222,222,0.25),-2px_-2px_19.3px_rgba(224,224,224,0.41)]"
-//             />
-//             <div className="flex flex-col">
-//               <span className="text-xs text-[#797979]">Welcome</span>
-//               <span className="text-sm font-semibold text-[#2A2A2A]">Paul</span>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Mobile Navbar */}
-//       <div className="lg:hidden w-full px-4 pt-4 pb-2 border-b border-[#EBEBEB] bg-white">
-//         <div className="flex justify-between items-center">
-//           {/* Left: Hamburger + Logo */}
-//           <div className="flex items-center gap-4">
-//             <button onClick={onToggleSidebar} className="text-[#2A2A2A]">
-//               <Menu className="w-6 h-6" />
-//             </button>
-//             <img src="/logo.svg" alt="Logo" className="h-6" />
-//           </div>
-
-//           {/* Right: Notification + Profile */}
-//           <div className="flex items-center gap-4">
-//             <div className="relative w-9 h-9 flex items-center justify-center bg-white rounded-full shadow-md">
-//               <Bell className="w-4 h-4 text-[#2A2A2A]" />
-//               <span className="absolute top-2 right-2 w-[6.4px] h-[6.4px] bg-[#5188FF] rounded-full" />
-//             </div>
-
-//             <img
-//               src="/path-to-profile.jpg"
-//               alt="Profile"
-//               className="w-9 h-9 rounded-full shadow"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
 import { useState, useEffect } from "react";
 import { Bell, Menu } from "lucide-react";
 import Cookies from "universal-cookie";
@@ -276,7 +145,7 @@ const Navbar = ({ onToggleSidebar }: { onToggleSidebar: () => void }) => {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="lg:hidden w-full px-4 pt-4 pb-2 border-b border-[#EBEBEB] bg-white">
+      <div className="lg:hidden w-full px-4 pt-4 pb-2  bg-white">
         <div className="flex justify-between items-center">
           {/* Left: Hamburger + Logo */}
           <div className="flex items-center gap-4">

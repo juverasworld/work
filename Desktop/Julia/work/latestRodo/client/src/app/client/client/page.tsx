@@ -306,7 +306,7 @@ export default function ExpertSearchSection() {
             {/* Right Side */}
             <div className="flex items-center space-x-4">
               {/* Profile with Dropdown */}
-              <div className="hidden md:block relative" ref={dropdownRef}>
+              <div className="block relative" ref={dropdownRef}>
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="flex items-center space-x-2 bg-white rounded-full px-3 py-1 shadow-sm"
@@ -360,7 +360,7 @@ export default function ExpertSearchSection() {
               </div>
 
               {/* Notification Icon */}
-              <div className="bg-white p-2 rounded-full shadow-sm hidden md:block">
+              <div className="bg-white p-2 rounded-full shadow-sm block">
                 <Bell className="text-blue-600 relative" size={18} />
                 <span className="absolute top-[10px] right-[90px] w-2 h-2 bg-red-500 rounded-full"></span>
               </div>
@@ -388,7 +388,7 @@ export default function ExpertSearchSection() {
                 <a href="#" className="hover:text-gray-900">
                   Services
                 </a>
-                {currentUser ? (
+                {/* {currentUser ? (
                   <button
                     onClick={handleLogout}
                     className="text-left text-gray-700 hover:text-gray-900"
@@ -399,7 +399,7 @@ export default function ExpertSearchSection() {
                   <a href="/auth/sign-in" className="hover:text-gray-900">
                     Sign In
                   </a>
-                )}
+                )} */}
               </nav>
             </div>
           )}

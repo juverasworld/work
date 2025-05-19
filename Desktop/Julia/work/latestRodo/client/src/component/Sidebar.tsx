@@ -133,7 +133,7 @@ export default function Sidebar({
           show
             ? "translate-x-0"
             : "-translate-x-full lg:translate-x-0"
-        } fixed top-0 left-0 z-40 w-[260px] min-h-screen bg-white border-r border-gray-100 p-4 transform transition-transform duration-300`}
+        } fixed top-0 left-0 z-40 w-[260px] min-h-screen bg-white  p-4 transform transition-transform duration-300`}
       >
         <div className="flex items-center justify-between mb-6">
           <Image src="/logo.svg" alt="Logo" width={100} height={40} />
